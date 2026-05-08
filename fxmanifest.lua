@@ -14,5 +14,6 @@ files {
     'html/app.js'
 }
 
+shared_script 'fackdata.lua'
 client_script 'client.lua'
 server_script 'server.lua'
