@@ -1,0 +1,134 @@
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    backdrop-filter: blur(5px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 99999;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    width: 620px;
+    background: #111827;
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 80px rgba(0,0,0,.55);
+}
+
+.modal-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 25px;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.modal-header h2 {
+    color: white;
+    font-size: 22px;
+}
+
+.modal-header button {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 12px;
+    background: rgba(255,255,255,.05);
+    color: white;
+    cursor: pointer;
+}
+
+.modal-content {
+    padding: 30px 25px;
+    color: rgba(255,255,255,.8);
+    line-height: 1.7;
+}
+
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 20px 25px;
+    border-top: 1px solid rgba(255,255,255,.05);
+}
+
+.modal-btn {
+    border: none;
+    padding: 14px 22px;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.modal-btn.cancel {
+    background: rgba(255,255,255,.06);
+    color: white;
+}
+
+.modal-btn.save {
+    background: #8b5cf6;
+    color: white;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.employee-table th,
+.employee-table td {
+    padding: 18px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,.05);
+}
+
+.employee-table th {
+    color: rgba(255,255,255,.45);
+    font-size: 13px;
+}
+
+.employee-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    border: none;
+    padding: 10px 14px;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.action-btn.fire {
+    background: #dc2626;
+}
+
+.action-btn.promote {
+    background: #2563eb;
+}
+
+.action-btn.permissions {
+    background: #8b5cf6;
+}
+
+.action-btn.badges {
+    background: #f59e0b;
+}
+
+.owner-badge {
+    background: rgba(139,92,246,.18);
+    color: #c4b5fd;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
