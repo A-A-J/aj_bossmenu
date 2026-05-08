@@ -3,15 +3,93 @@
 @import url('./styles/layout/header.css');
 @import url('./styles/components/cards.css');
 @import url('./styles/components/panels.css');
+@import url('./styles/components/toast.css');
 
-.container {
+body {
+    display: none;
+}
+
+.boss-wrapper {
     width: 95%;
     height: 92%;
     margin: auto;
     margin-top: 2%;
-    background: rgba(10, 10, 18, 0.95);
-    border-radius: 20px;
+    background: radial-gradient(circle at top, rgba(26,26,46,0.98), rgba(10,10,18,0.98));
+    border-radius: 22px;
     display: flex;
     overflow: hidden;
     border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 0 80px rgba(0,0,0,.45);
+}
+
+.page {
+    display: none;
+    animation: fade .18s ease;
+}
+
+.page.active {
+    display: block;
+}
+
+.page-panel {
+    min-height: 700px;
+}
+
+.toolbar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.toolbar button,
+.panel-button,
+.exit-btn {
+    border: none;
+    outline: none;
+    background: rgba(139,92,246,.15);
+    color: #a78bfa;
+    border-radius: 14px;
+    padding: 14px 18px;
+    cursor: pointer;
+    transition: .2s ease;
+}
+
+.toolbar button:hover,
+.panel-button:hover,
+.exit-btn:hover {
+    background: #8b5cf6;
+    color: white;
+}
+
+.exit-btn {
+    margin-top: auto;
+    width: 58px;
+    height: 58px;
+}
+
+.panel-button {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.header-divider {
+    width: 1px;
+    height: 55px;
+    background: rgba(255,255,255,.08);
+}
+
+.logs-preview {
+    min-height: 420px;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
