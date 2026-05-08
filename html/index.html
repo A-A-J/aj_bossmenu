@@ -45,27 +45,39 @@
             </header>
 
             <section class="page active" id="homePage">
-                <div class="cards">
-                    <div class="card purple"><i class="fa-solid fa-wallet"></i><div><h2 id="balanceValue">$45,250</h2><p>Balance</p></div></div>
-                    <div class="card green"><i class="fa-solid fa-dollar-sign"></i><div><h2 id="dailyRevenueValue">$12,500</h2><p>Daily Revenue</p><strong>↑ 12.5%</strong></div></div>
-                    <div class="card blue"><i class="fa-solid fa-users"></i><div><h2 id="employeesValue">12</h2><p>Employees</p><strong id="onlineValue">Online: 5</strong></div></div>
-                    <div class="card orange"><i class="fa-solid fa-car"></i><div><h2 id="vehiclesValue">8</h2><p>Vehicles</p><strong id="garageValue">In Garage: 6</strong></div></div>
-                </div>
+                <div class="cards"></div>
                 <div class="content-grid">
-                    <section class="panel logs-preview"><h2>Recent Logs</h2><div id="homeLogs"></div><button class="panel-button" data-open-page="logs"><i class="fa-solid fa-file-lines"></i> View All Logs</button></section>
+                    <section class="panel logs-preview"><h2>Recent Logs</h2><div id="homeLogs"></div></section>
                     <section class="panel info"><h2>Job Information</h2><div id="jobInfo"></div></section>
                 </div>
             </section>
 
-            <section class="page" id="financePage"><div class="panel page-panel"><h2>Finance</h2><div class="toolbar"><button>Deposit</button><button>Withdraw</button></div><div class="finance-list"></div></div></section>
-            <section class="page" id="employeesPage"><div class="panel page-panel"><h2>Employees</h2><div class="toolbar"><button>Hire Employee</button><button>Edit Grades</button></div><div class="employees-list"></div></div></section>
-            <section class="page" id="storePage"><div class="panel page-panel"><h2>Store</h2><div class="toolbar"><button>Add Item</button><button>Restock</button></div><div class="store-list"></div></div></section>
-            <section class="page" id="vehiclesPage"><div class="panel page-panel"><h2>Vehicles</h2><div class="toolbar"><button>Spawn Vehicle</button><button>Add Vehicle</button></div><div class="vehicles-list"></div></div></section>
-            <section class="page" id="clothingPage"><div class="panel page-panel"><h2>Clothing</h2><div class="toolbar"><button>Add Outfit</button><button>Manage Access</button></div><div class="clothing-list"></div></div></section>
+            <section class="page" id="financePage"><div class="panel page-panel"><h2>Finance</h2><div class="finance-list"></div></div></section>
+            <section class="page" id="employeesPage"><div class="panel page-panel"><h2>Employees</h2><div class="employees-list"></div></div></section>
+            <section class="page" id="storePage"><div class="panel page-panel"><h2>Store</h2><div class="store-list"></div></div></section>
+            <section class="page" id="vehiclesPage"><div class="panel page-panel"><h2>Vehicles</h2><div class="vehicles-list"></div></div></section>
+            <section class="page" id="clothingPage"><div class="panel page-panel"><h2>Clothing</h2><div class="clothing-list"></div></div></section>
             <section class="page" id="logsPage"><div class="panel page-panel"><h2>Logs</h2><div class="logs-list"></div></div></section>
             <section class="page" id="settingsPage"><div class="panel page-panel"><h2>Settings</h2><div class="settings-list"></div></div></section>
         </main>
     </div>
+
+    <div class="modal-overlay" id="appModal">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h2 id="modalTitle">Modal Title</h2>
+                <button id="modalClose"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="modal-content" id="modalBody"></div>
+
+            <div class="modal-footer">
+                <button class="modal-btn cancel" id="modalCancel">Cancel</button>
+                <button class="modal-btn save" id="modalSave">Save</button>
+            </div>
+        </div>
+    </div>
+
     <script type="module" src="app.js"></script>
 </body>
 </html>
