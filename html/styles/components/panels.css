@@ -1,0 +1,30 @@
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.panel {
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    padding: 25px;
+}
+
+.panel h2 {
+    margin-bottom: 25px;
+}
+
+.log-item,
+.info-row,
+.list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.list-item p {
+    color: rgba(255,255,255,0.5);
+    margin-top: 5px;
+}
