@@ -5,6 +5,7 @@
 @import url('./styles/components/panels.css');
 @import url('./styles/components/toast.css');
 @import url('./styles/components/modal.css');
+@import url('./styles/components/store.css');
 
 body {
     display: none;
