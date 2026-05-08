@@ -1,14 +1,30 @@
 export function loadLogs(logs) {
-    const logsContainer = document.querySelector('.logs');
+    const homeLogs = document.getElementById('homeLogs');
+    const logsList = document.querySelector('.logs-list');
 
-    logsContainer.innerHTML = '<h2>Recent Logs</h2>';
+    if (homeLogs) {
+        homeLogs.innerHTML = '';
 
-    logs.forEach(log => {
-        logsContainer.innerHTML += `
-            <div class="log-item">
-                <span><i class="fa-solid ${log.icon}"></i> ${log.title}</span>
-                <small>${log.time}</small>
-            </div>
-        `;
-    });
+        logs.forEach(log => {
+            homeLogs.innerHTML += `
+                <div class="log-item">
+                    <span><i class="fa-solid ${log.icon}"></i> ${log.title}</span>
+                    <small>${log.time}</small>
+                </div>
+            `;
+        });
+    }
+
+    if (logsList) {
+        logsList.innerHTML = '';
+
+        logs.forEach(log => {
+            logsList.innerHTML += `
+                <div class="log-item">
+                    <span><i class="fa-solid ${log.icon}"></i> ${log.title}</span>
+                    <small>${log.time}</small>
+                </div>
+            `;
+        });
+    }
 }
