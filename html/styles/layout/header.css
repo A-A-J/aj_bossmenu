@@ -1,0 +1,48 @@
+.main {
+    flex: 1;
+    padding: 35px;
+    color: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.header h1 {
+    font-size: 38px;
+}
+
+.header p {
+    color: rgba(255,255,255,0.5);
+    margin-top: 5px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255,255,255,0.03);
+    padding: 12px 18px;
+    border-radius: 18px;
+}
+
+.profile img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+}
+
+.profile span {
+    color: #8b5cf6;
+}
+
+.worktime {
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #fff;
+}
