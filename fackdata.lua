@@ -16,6 +16,21 @@ AJ.FakeData = {
         created = 'May 1, 2024'
     },
 
+    grades = {
+        { id = 0, name = 'Recruit' },
+        { id = 1, name = 'Employee' },
+        { id = 2, name = 'Manager' },
+        { id = 3, name = 'Boss' }
+    },
+
+    citizens = {
+        { id = '1001', name = 'Ahmed Alharbi' },
+        { id = '1002', name = 'Fahad Alotaibi' },
+        { id = '1003', name = 'Salem Alqahtani' },
+        { id = '1004', name = 'Nasser Aldosari' },
+        { id = '1005', name = 'Turki Alghamdi' }
+    },
+
     stats = {
         balance = 45250,
         employees = 12,
