@@ -25,7 +25,6 @@ function bindCitizenSearch() {
             const name = option.dataset.name.toLowerCase();
             const id = option.dataset.id.toLowerCase();
             const matched = name.includes(value) || id.includes(value);
-
             option.style.display = matched ? 'flex' : 'none';
             if (matched) found++;
         });
@@ -50,82 +49,106 @@ function openHireModal(data) {
         </div>
     `).join('');
 
-    openModal('Hire Employee', `
-        <div class="hire-form">
-            <div class="form-group citizen-group">
-                <label>Citizen Name / ID</label>
-                <input type="text" id="citizenSearch" placeholder="Type citizen name or ID..." autocomplete="off">
-                <div class="citizen-results" id="citizenResults">${citizens}</div>
+    openModal({
+        title: 'Hire Employee',
+        saveText: 'Send Hire Request',
+        payload: data,
+        content: `
+            <div class="hire-form">
+                <div class="form-group citizen-group">
+                    <label>Citizen Name / ID</label>
+                    <input type="text" id="citizenSearch" placeholder="Type citizen name or ID..." autocomplete="off">
+                    <div class="citizen-results" id="citizenResults">${citizens}</div>
+                </div>
+                <div class="form-group">
+                    <label>Employee Grade</label>
+                    <select id="gradeSelect">${gradesOptions(data)}</select>
+                </div>
+                <p class="modal-note">Select a citizen from the search menu, then send a hire request.</p>
             </div>
-            <div class="form-group">
-                <label>Employee Grade</label>
-                <select id="gradeSelect">${gradesOptions(data)}</select>
-            </div>
-            <p class="modal-note">Select a citizen from the search menu, then send a hire request.</p>
-        </div>
-    `);
-
-    document.getElementById('modalSave').innerText = 'Send Hire Request';
-    bindCitizenSearch();
+        `,
+        onOpen: bindCitizenSearch,
+        onSubmit: () => {}
+    });
 }
 
 function openFireModal(employee) {
-    openModal('Fire Employee', `
-        <div class="warning-box">
-            <i class="fa-solid fa-triangle-exclamation"></i>
-            <div>
-                <h3>Confirm employee dismissal</h3>
-                <p>Are you sure you want to fire <strong>${employee.name}</strong>? This action should be confirmed before sending it to the server.</p>
+    openModal({
+        title: 'Fire Employee',
+        saveText: 'Confirm Fire',
+        payload: employee,
+        content: `
+            <div class="warning-box">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                <div>
+                    <h3>Confirm employee dismissal</h3>
+                    <p>Are you sure you want to fire <strong>${employee.name}</strong>? This action should be confirmed before sending it to the server.</p>
+                </div>
             </div>
-        </div>
-    `, employee);
-    document.getElementById('modalSave').innerText = 'Confirm Fire';
+        `,
+        onSubmit: () => {}
+    });
 }
 
 function openPromoteModal(data, employee) {
-    openModal('Promote Employee', `
-        <div class="hire-form">
-            <div class="form-group">
-                <label>Employee</label>
-                <input type="text" value="${employee.name}" disabled>
+    openModal({
+        title: 'Promote Employee',
+        saveText: 'Save Promotion',
+        payload: employee,
+        content: `
+            <div class="hire-form">
+                <div class="form-group">
+                    <label>Employee</label>
+                    <input type="text" value="${employee.name}" disabled>
+                </div>
+                <div class="form-group">
+                    <label>New Grade</label>
+                    <select id="promoteGrade">${gradesOptions(data, employee.grade)}</select>
+                </div>
             </div>
-            <div class="form-group">
-                <label>New Grade</label>
-                <select id="promoteGrade">${gradesOptions(data, employee.grade)}</select>
-            </div>
-        </div>
-    `, employee);
-    document.getElementById('modalSave').innerText = 'Save Promotion';
+        `,
+        onSubmit: () => {}
+    });
 }
 
 function openPermissionsModal(employee) {
-    openModal('Employee Permissions', `
-        <div class="checkbox-grid">
-            <label><input type="checkbox"> Manage Employees</label>
-            <label><input type="checkbox"> Manage Finance</label>
-            <label><input type="checkbox"> Manage Vehicles</label>
-            <label><input type="checkbox"> Manage Store</label>
-            <label><input type="checkbox"> Manage Clothing</label>
-            <label><input type="checkbox"> View Logs</label>
-        </div>
-        <p class="modal-note">You can select more than one permission for <strong>${employee.name}</strong>.</p>
-    `, employee);
-    document.getElementById('modalSave').innerText = 'Save Permissions';
+    openModal({
+        title: 'Employee Permissions',
+        saveText: 'Save Permissions',
+        payload: employee,
+        content: `
+            <div class="checkbox-grid">
+                <label><input type="checkbox"> Manage Employees</label>
+                <label><input type="checkbox"> Manage Finance</label>
+                <label><input type="checkbox"> Manage Vehicles</label>
+                <label><input type="checkbox"> Manage Store</label>
+                <label><input type="checkbox"> Manage Clothing</label>
+                <label><input type="checkbox"> View Logs</label>
+            </div>
+            <p class="modal-note">You can select more than one permission for <strong>${employee.name}</strong>.</p>
+        `,
+        onSubmit: () => {}
+    });
 }
 
 function openBadgesModal(employee) {
-    openModal('Employee Badges', `
-        <div class="checkbox-grid">
-            <label><input type="checkbox"> Supervisor Badge</label>
-            <label><input type="checkbox"> Training Badge</label>
-            <label><input type="checkbox"> Finance Badge</label>
-            <label><input type="checkbox"> Garage Badge</label>
-            <label><input type="checkbox"> Store Badge</label>
-            <label><input type="checkbox"> Senior Badge</label>
-        </div>
-        <p class="modal-note">You can select more than one badge for <strong>${employee.name}</strong>.</p>
-    `, employee);
-    document.getElementById('modalSave').innerText = 'Save Badges';
+    openModal({
+        title: 'Employee Badges',
+        saveText: 'Save Badges',
+        payload: employee,
+        content: `
+            <div class="checkbox-grid">
+                <label><input type="checkbox"> Supervisor Badge</label>
+                <label><input type="checkbox"> Training Badge</label>
+                <label><input type="checkbox"> Finance Badge</label>
+                <label><input type="checkbox"> Garage Badge</label>
+                <label><input type="checkbox"> Store Badge</label>
+                <label><input type="checkbox"> Senior Badge</label>
+            </div>
+            <p class="modal-note">You can select more than one badge for <strong>${employee.name}</strong>.</p>
+        `,
+        onSubmit: () => {}
+    });
 }
 
 export function loadEmployees(data) {
