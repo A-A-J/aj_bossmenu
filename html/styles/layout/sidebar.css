@@ -1,0 +1,38 @@
+.sidebar {
+    width: 90px;
+    background: rgba(255,255,255,0.02);
+    border-right: 1px solid rgba(255,255,255,0.05);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    color: #8b5cf6;
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu button {
+    width: 58px;
+    height: 58px;
+    border: none;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.03);
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.menu button.active,
+.menu button:hover {
+    background: #8b5cf6;
+}
