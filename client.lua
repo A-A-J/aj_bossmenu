@@ -2,7 +2,8 @@ RegisterCommand('bossmenu', function()
     SetNuiFocus(true, true)
 
     SendNUIMessage({
-        action = 'open'
+        action = 'open',
+        data = AJ.GetFakeBossMenuData()
     })
 end)
 
