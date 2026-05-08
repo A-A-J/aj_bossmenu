@@ -1,6 +1,24 @@
 import { loadMenuStats } from './modal/menu/menu.js';
 import { loadMemberData } from './modal/member/member.js';
 import { loadLogs } from './modal/logs/logs.js';
+import { loadFinance } from './modal/finance/finance.js';
+import { loadEmployees } from './modal/employees/employees.js';
+import { loadStore } from './modal/store/store.js';
+import { loadVehicles } from './modal/vehicles/vehicles.js';
+import { loadClothing } from './modal/clothing/clothing.js';
+import { loadSettings } from './modal/settings/settings.js';
+import { initRouter } from './modal/router/router.js';
+import { showToast } from './modal/notifications/toast.js';
+
+function closeMenu() {
+    fetch(`https://${GetParentResourceName()}/close`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+    });
+}
 
 window.addEventListener('message', function(event) {
     if (event.data.action === 'open') {
@@ -13,6 +31,16 @@ window.addEventListener('message', function(event) {
         loadMemberData(data);
         loadMenuStats(data);
         loadLogs(data.logs);
+        loadFinance(data);
+        loadEmployees(data);
+        loadStore(data);
+        loadVehicles(data);
+        loadClothing(data);
+        loadSettings(data);
+
+        initRouter();
+
+        showToast('Boss Menu Loaded');
     }
 
     if (event.data.action === 'close') {
@@ -22,12 +50,8 @@ window.addEventListener('message', function(event) {
 
 document.addEventListener('keyup', function(e) {
     if (e.key === 'Escape') {
-        fetch(`https://${GetParentResourceName()}/close`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({})
-        });
+        closeMenu();
     }
 });
+
+document.getElementById('closeBtn')?.addEventListener('click', closeMenu);
