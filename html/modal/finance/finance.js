@@ -1,21 +1,27 @@
 import { openModal } from '../modal/modal.js';
 
-function financeModal(type) {
-    openModal(`${type} Funds`, `
-        <div class="hire-form">
-            <div class="form-group">
-                <label>Amount</label>
-                <input type="number" placeholder="Enter amount...">
-            </div>
+function openFinanceModal(type) {
+    openModal({
+        title: `${type} Funds`,
+        saveText: type,
+        payload: { type },
+        content: `
+            <div class="hire-form">
+                <div class="form-group">
+                    <label>Amount</label>
+                    <input id="financeAmount" type="number" min="1" required placeholder="Enter amount...">
+                </div>
 
-            <div class="form-group">
-                <label>Reason</label>
-                <textarea placeholder="Write reason here..." required></textarea>
-            </div>
-        </div>
-    `);
+                <div class="form-group">
+                    <label>Reason</label>
+                    <textarea id="financeReason" required placeholder="Write reason here..."></textarea>
+                </div>
 
-    document.getElementById('modalSave').innerText = type;
+                <p class="modal-note">Amount and reason are required before sending this ${type.toLowerCase()} request.</p>
+            </div>
+        `,
+        onSubmit: () => {}
+    });
 }
 
 export function loadFinance(data) {
@@ -109,6 +115,6 @@ export function loadFinance(data) {
         </section>
     `;
 
-    document.getElementById('depositBtn')?.addEventListener('click', () => financeModal('Deposit'));
-    document.getElementById('withdrawBtn')?.addEventListener('click', () => financeModal('Withdraw'));
+    document.getElementById('depositBtn')?.addEventListener('click', () => openFinanceModal('Deposit'));
+    document.getElementById('withdrawBtn')?.addEventListener('click', () => openFinanceModal('Withdraw'));
 }
