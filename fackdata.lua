@@ -25,27 +25,53 @@ AJ.FakeData = {
         dailyRevenue = 12500
     },
 
-    logs = {
-        {
-            title = 'John Smith joined the job',
-            time = '5 min ago',
-            icon = 'fa-user-plus'
-        },
-        {
-            title = 'Vehicle Sultan RS spawned',
-            time = '15 min ago',
-            icon = 'fa-car'
-        },
-        {
-            title = '$12,500 added to society',
-            time = '30 min ago',
-            icon = 'fa-dollar-sign'
-        },
-        {
-            title = 'Mike Johnson was hired',
-            time = '1 hour ago',
-            icon = 'fa-user-check'
+    finances = {
+        transactions = {
+            { type = 'Deposit', amount = 12500, by = 'John Smith', time = 'Today 14:20' },
+            { type = 'Withdraw', amount = 2500, by = 'Mike Johnson', time = 'Today 12:05' },
+            { type = 'Salary Paid', amount = 7600, by = 'System', time = 'Yesterday 22:00' }
         }
+    },
+
+    employees = {
+        { name = 'John Smith', grade = 'Boss', status = 'Online', hours = '23h 45m' },
+        { name = 'Mike Johnson', grade = 'Manager', status = 'Online', hours = '12h 10m' },
+        { name = 'David Miller', grade = 'Employee', status = 'Offline', hours = '7h 30m' },
+        { name = 'Robert Wilson', grade = 'Recruit', status = 'Online', hours = '2h 15m' }
+    },
+
+    store = {
+        { item = 'Radio', price = 250, stock = 35 },
+        { item = 'Repair Kit', price = 500, stock = 18 },
+        { item = 'Armor', price = 1200, stock = 10 },
+        { item = 'Bandage', price = 80, stock = 60 }
+    },
+
+    vehicles = {
+        { label = 'Sultan RS', plate = 'AJ 1020', status = 'Available' },
+        { label = 'Buffalo STX', plate = 'AJ 2211', status = 'Out' },
+        { label = 'Granger', plate = 'AJ 3344', status = 'Maintenance' }
+    },
+
+    clothes = {
+        { name = 'Boss Outfit', grade = 'Boss' },
+        { name = 'Manager Outfit', grade = 'Manager' },
+        { name = 'Employee Outfit', grade = 'Employee' }
+    },
+
+    settings = {
+        language = 'English',
+        theme = 'Dark Purple',
+        allowWithdraw = true,
+        allowHire = true,
+        allowVehicleSpawn = true
+    },
+
+    logs = {
+        { title = 'John Smith joined the job', time = '5 min ago', icon = 'fa-user-plus' },
+        { title = 'Vehicle Sultan RS spawned', time = '15 min ago', icon = 'fa-car' },
+        { title = '$12,500 added to society', time = '30 min ago', icon = 'fa-dollar-sign' },
+        { title = 'Mike Johnson was hired', time = '1 hour ago', icon = 'fa-user-check' }
     }
 }
 
