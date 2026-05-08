@@ -9,6 +9,7 @@ import { loadClothing } from './modal/clothing/clothing.js';
 import { loadSettings } from './modal/settings/settings.js';
 import { initRouter } from './modal/router/router.js';
 import { showToast } from './modal/notifications/toast.js';
+import { initModal } from './modal/modal/modal.js';
 
 function closeMenu() {
     fetch(`https://${GetParentResourceName()}/close`, {
@@ -39,6 +40,7 @@ window.addEventListener('message', function(event) {
         loadSettings(data);
 
         initRouter();
+        initModal();
 
         showToast('Boss Menu Loaded');
     }
